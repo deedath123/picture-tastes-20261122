@@ -19,6 +19,10 @@ behind-left for depth, one mint leaf rests bottom-right, all on a soft
 warm-cream background with a gentle radial light falloff and a soft
 elliptical shadow under the fruit. No text anywhere in the image.
 
+The strawberry itself: one ripe berry, sunlit and juicy, its red skin
+deepening toward the tip with a soft pale-pink juice sheen along the
+lower-left curve — sweet, tart, and unmistakably strawberry at first sight.
+
 ## Run it
 
 ```sh

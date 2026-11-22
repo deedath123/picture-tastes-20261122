@@ -2,7 +2,7 @@
 """The picture that tastes of one ingredient — make.fun probe.
 
 One giant glossy strawberry, centre frame, stdlib only (no PIL, no
-fonts, no network). Writes entry.png (1024x1024) into
+fonts, no network). Writes entry.png (1024x1024, 299499 bytes) into
 $MAKEFUN_OUTPUT_DIR (default /output). Deterministic: fixed geometry,
 fixed palette, zlib level 9, no timestamps anywhere in the file.
 """
@@ -131,7 +131,7 @@ def draw_strawberry(cx, cy, rx, ry, bright, deep, seed_col, gloss):
             col = lerp3(bright, deep, t ** 1.15)
             # vertical darkening toward the tip
             col = lerp3(col, (col[0] * 0.78, col[1] * 0.72, col[2] * 0.75),
-                        0.35 * max(0.0, yn))
+                        0.42 * max(0.0, yn))
             # faint vertical ribs
             rib = 1.0 + 0.045 * sin(x * 0.085 + y * 0.012)
             col = (col[0] * rib, col[1] * rib, col[2] * rib)
@@ -160,6 +160,9 @@ def draw_strawberry(cx, cy, rx, ry, bright, deep, seed_col, gloss):
                      (255, 255, 255), 0.45)
         soft_ellipse(cx + rx * 0.55, cy + ry * 0.10, rx * 0.20, ry * 0.09,
                      (255, 220, 200), 0.16)
+        # juice sheen: soft pale-pink highlight arc along lower-left curve
+        soft_ellipse(cx - rx * 0.62, cy + ry * 0.35, rx * 0.22, ry * 0.10,
+                     (255, 190, 175), 0.18)
 
 
 # smaller strawberry behind-left, for depth (muted, less gloss)
